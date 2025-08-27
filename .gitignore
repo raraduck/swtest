@@ -1,0 +1,69 @@
+# ======================
+# Visual Studio Specific
+# ======================
+
+## User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Build results
+[Bb]in/
+[Oo]bj/
+*.exe
+*.dll
+*.lib
+*.pdb
+*.ipdb
+*.iobj
+*.log
+*.tlog
+*.pch
+*.bsc
+
+# Visual Studio cache and settings folders
+.vs/
+.vscode/
+*.VC.db
+*.VC.VC.opendb
+
+# CMake build directories (if used)
+[Cc]MakeFiles/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# ===================
+# OS / Editor General
+# ===================
+
+# Windows thumbnail cache
+Thumbs.db
+ehthumbs.db
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+
+# Linux
+*.swp
+
+# Backup files
+*~
+*.bak
+
+# ===================
+# Optional: Ignore IDEs
+# ===================
+
+# JetBrains Rider, CLion, ReSharper
+.idea/
+*.DotSettings.user
+
+**/Debug/
+**/Release/
