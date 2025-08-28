@@ -124,6 +124,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="p1-A.cpp" />
+    <ClCompile Include="p1-B.cpp" />
+    <ClCompile Include="p1-C.cpp" />
+    <ClCompile Include="p1-D.cpp" />
+    <ClCompile Include="p1-E.cpp" />
+    <ClCompile Include="p1-F.cpp" />
+    <ClCompile Include="p1-G.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="p1-A.h" />
+    <ClInclude Include="p1-B.h" />
+    <ClInclude Include="p1-C.h" />
+    <ClInclude Include="p1-D.h" />
+    <ClInclude Include="p1-E.h" />
+    <ClInclude Include="p1-F.h" />
+    <ClInclude Include="p1-G.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -18,5 +18,49 @@
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="p1-A.cpp">
+      <Filter>리소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="p1-B.cpp">
+      <Filter>리소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="p1-C.cpp">
+      <Filter>리소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="p1-D.cpp">
+      <Filter>리소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="p1-E.cpp">
+      <Filter>리소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="p1-F.cpp">
+      <Filter>리소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="p1-G.cpp">
+      <Filter>리소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="p1-A.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="p1-B.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="p1-C.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="p1-D.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="p1-E.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="p1-F.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="p1-G.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

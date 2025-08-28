@@ -1,21 +1,19 @@
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "p1-A.h";
+#include "p1-B.h";
+#include "p1-C.h";
+#include "p1-D.h";
+#include "p1-E.h";
+#include "p1-F.h";
+#include "p1-G.h";
 
-int MAT[9] = {};
-vector<int> v;
 int main() {
-    for (int i = 0; i < 9; i++) {
-        cin >> MAT[i];
-        v.push_back(MAT[i]);
-    }
-    cout << "\n";
-    cout << "³­ÀïÀÌ 9¸í: " << "\n";
-    for (int i = 0; i < 9; i++) {
-        cout << "(" << MAT[i] << ", " << v[i] << ") ";
-    }
-    cout << "\n";
+	//P2309_1::main();
+	//P2309_2::main();
 
-
-    return 0;
+	//P10808::main();
+	//P2979::main();
+	//P10988::main();
+	//P1159::main();
+	//P11655::main();
+	P9996::main();
 }
