@@ -131,6 +131,7 @@
     <ClCompile Include="p1-E.cpp" />
     <ClCompile Include="p1-F.cpp" />
     <ClCompile Include="p1-G.cpp" />
+    <ClCompile Include="p1-H.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="p1-A.h" />
@@ -140,6 +141,7 @@
     <ClInclude Include="p1-E.h" />
     <ClInclude Include="p1-F.h" />
     <ClInclude Include="p1-G.h" />
+    <ClInclude Include="p1-H.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
