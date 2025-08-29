@@ -5,7 +5,7 @@
 #include <cstdlib>
 
 using namespace std;
-
+// https://www.acmicpc.net/problem/1620
 int main()
 {
     int N; // 포켓몬 개수   1~100,000
