@@ -32,7 +32,7 @@ def is_pallindrom(l_str):
     return str1 == str2
 
 TMP = C_STR
-def recursive(n, r, depth):
+def makePermutation(n, r, depth):
     # print(f"{n}:{r}:{depth}")
     if (depth == r):
         # tmp = ''.join(TMP)
@@ -45,9 +45,9 @@ def recursive(n, r, depth):
         for i in range(depth,n):
             # TMP.append(C_STR[i])
             TMP[i], TMP[depth] = TMP[depth], TMP[i]
-            recursive(n, r, depth+1)
+            makePermutation(n, r, depth+1)
             # TMP.pop()
             TMP[i], TMP[depth] = TMP[depth], TMP[i]
 
-recursive(len(C_STR), len(C_STR), 0)
+makePermutation(len(C_STR), len(C_STR), 0)
 print(f"I'm Sorry Hansoo")
