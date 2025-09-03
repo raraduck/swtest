@@ -70,3 +70,4 @@ $RECYCLE.BIN/
 
 venv
 .env
+*.json
