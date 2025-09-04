@@ -9,6 +9,82 @@ import boto3
 from botocore.exceptions import NoCredentialsError
 from dotenv import load_dotenv
 
+adm_mapping = {
+    "11010":	"종로구",   # 1
+    "11020":	"중구",     # 2
+    "11030":	"용산구",   # 3
+    "11040":	"성동구",   # 4
+    "11050":	"광진구",   # 5
+    "11060":	"동대문구", # 6
+    "11070":	"중랑구",   # 7
+    "11080":	"성북구",   # 8
+    "11090":	"강북구",   # 9
+    "11100":	"도봉구",   #10
+    "11110":	"노원구",   #11
+    "11120":	"은평구",   #12
+    "11130":	"서대문구", #13
+    "11140":	"마포구",   #14
+    "11150":	"양천구",   #15
+    "11160":	"강서구",   #16
+    "11170":	"구로구",   #17
+    "11180":	"금천구",   #18
+    "11190":	"영등포구", #19
+    "11200":	"동작구",   #20
+    "11210":	"관악구",   #21
+    "11220":	"서초구",   #22
+    "11230":	"강남구",   #23
+    "11240":	"송파구",   #24
+    "11250":	"강동구"    #25
+}
+
+keys = [
+    "year",             # 1 int
+    "adm_cd",           # 2 string
+    "adm_nm",           # 3 string
+    "upper_adm_cd",     # 4 string
+    "upper_adm_nm",     # 5 string
+    "tot_ppltn",        # 6 int
+    "avg_age",          # 7 float
+    "ppltn_dnsty",      # 8 float
+    "aged_child_idx",   # 9 float
+    "oldage_suprt_per", #10 float
+    "juv_suprt_per",    #11 float
+    "tot_family",       #12 int
+    "avg_fmember_cnt",  #13 float
+    "tot_house",        #14 int
+    "nongga_cnt",       #15 int
+    "nongga_ppltn",     #16 int
+    "imga_cnt",         #17 int
+    "imga_ppltn",       #18 int
+    "naesuoga_cnt",     #19 int
+    "naesuoga_ppltn",   #20 int
+    "haesuoga_cnt",     #21 int
+    "haesuoga_ppltn",   #22 int
+    "employee_cnt",     #23 int
+    "corp_cnt"          #24 int
+]
+
+            # "ppltn_dnsty": "42529.3",
+            # "oldage_suprt_per": "16.2",
+            # "imga_cnt": "N/A",
+            # "avg_age": "40.5",
+            # "aged_child_idx": "113.5",
+            # "naesuoga_cnt": "N/A",
+            # "avg_fmember_cnt": "2.5",
+            # "haesuoga_cnt": "N/A",
+            # "adm_cd": "11040520",
+            # "adm_nm": "왕십리2동",
+            # "tot_family": "6043",
+            # "naesuoga_ppltn": "N/A",
+            # "juv_suprt_per": "14.3",
+            # "tot_ppltn": "15827",
+            # "corp_cnt": "655",
+            # "imga_ppltn": "N/A",
+            # "employee_cnt": "2229",
+            # "nongga_cnt": "N/A",
+            # "tot_house": "4037",
+            # "nongga_ppltn": "16",
+            # "haesuoga_ppltn": "N/A"
 
 def get_access_token(consumer_key, consumer_secret):
     url = "https://sgisapi.kostat.go.kr/OpenAPI3/auth/authentication.json"
@@ -78,19 +154,20 @@ def upload_to_s3(file_name, bucket_name, object_name):
 
 def main(args):
     if args.init == 'y':
-        args.adm_cd = "non"
+        args.adm_cd = [str(k) for k in adm_mapping.keys()]
         args.year = [str(year) for year in range(2015, 2024)]
     
     for year in args.year:
-        # 1. API를 통해서 데이터 가져오기 
-        data = get_data_from_api(args.adm_cd, year)
-        # 2. 데이터를 파일로 저장
-        file_name = f"{year}_{args.adm_cd}_result.json"
-        save_file(data, file_name, "json")
-        # 3. S3에 업로드하기
-        bucket_name = "metacode-dwngcp"
-        object_name = f"total_statistics/year={year}/adm_cd={args.adm_cd}/result.json"
-        upload_to_s3(file_name, bucket_name, object_name)
+        for adm_cd in args.adm_cd:
+            # 1. API를 통해서 데이터 가져오기 
+            data = get_data_from_api(adm_cd, year)
+            # 2. 데이터를 파일로 저장
+            file_name = f"{year}_{adm_cd}_result.json"
+            save_file(data, file_name, "json")
+            # 3. S3에 업로드하기
+            bucket_name = "metacode-dwngcp2"
+            object_name = f"total_statistics/total_year={year}/total_adm_cd={adm_cd}/result.json"
+            upload_to_s3(file_name, bucket_name, object_name)
 
 load_dotenv()
 # OpenAPI 키
@@ -107,7 +184,7 @@ if __name__ == "__main__":
     # print(sys_argv)
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--init', type=str, choices=['y','n'], required=True, help="데이터 수집 초기 여부 (y = Yes, n = No, required)")
-    parser.add_argument('-a', '--adm_cd', type=str, default='11040', help="행정구역 코드 (5자리), default: 11040 (전국구))")
+    parser.add_argument('-a', '--adm_cd', type=str, nargs="+", default=['11040'], help="행정구역 코드 (5자리), default: 11040 (전국구))")
     parser.add_argument('-y', '--year', type=str, nargs="+", default=['2023'], help="기준연도, default: 2023)")
     args = parser.parse_args(sys_argv)
     # print(args)
