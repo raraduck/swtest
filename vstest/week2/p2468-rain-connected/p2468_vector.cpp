@@ -10,21 +10,17 @@ using namespace std;
 int dy[] = {-1, 0, 1, 0};
 int dx[] = {0, 1, 0, -1};
 
-int Arr[100][100] = {};
-int Mat[100][100] = {};
 
-void display(int n, int arr[][100]){
+void display(const vector<vector<int>>& arr){
     cout << ">>>\n";
-    for (int y=0; y<n; y++){
-        for (int x=0; x<n; x++){
-            cout << arr[y][x] << " ";
-        }
+    for (auto& row : arr) {
+        for (auto el : row) cout << el << " ";
         cout << "\n";
     }
     cout << "<<<\n";
 }
 
-void dfs(int _y, int _x, int mat[][100], int N){
+void dfs(int _y, int _x, vector<vector<int>>& mat, int N){
     mat[_y][_x] = 2;
     // Mat[ny][nx] = 2;
     
@@ -46,6 +42,8 @@ int main(){
 
     int N;
     cin >> N;
+    vector<vector<int>> Arr(N, vector<int>(N));
+    vector<vector<int>> Mat = Arr; // 복사
     // cout << N;
     int maxVal = 0;
     for (int r=0; r<N; r++){
@@ -60,7 +58,7 @@ int main(){
         }
     }
 
-    if (DEBUG) display(N, Arr);
+    if (DEBUG) display(Arr);
     // cout << maxVal << "\n";
     int ret = 0;
     for (int level = 0; level <= maxVal; level++){
@@ -75,7 +73,7 @@ int main(){
             }
         }
         if (DEBUG) cout << level << "\n";
-        if (DEBUG) display(N, Mat);
+        if (DEBUG) display(Mat);
         
         for (int y=0; y<N; y++){
             for (int x=0; x<N; x++){
