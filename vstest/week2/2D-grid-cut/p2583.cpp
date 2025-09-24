@@ -18,7 +18,7 @@ struct Pos {
 int dy[4] = {-1,  0,  1,  0};
 int dx[4] = { 0,  1,  0, -1};
 
-int dfs(int y, int x, vector<vector<int>>& mat, int c){
+void dfs(int y, int x, vector<vector<int>>& mat, int& c){
     c += 1;
     mat[y][x] = 2;
     for (int i=0; i<4; i++){
@@ -26,11 +26,11 @@ int dfs(int y, int x, vector<vector<int>>& mat, int c){
         int nx = x + dx[i];
         if ((int)mat.size() > ny && ny >= 0 && (int)mat[0].size() > nx && nx >= 0){
             if (mat[ny][nx] == 1){
-                c = dfs(ny, nx, mat, c);
+                dfs(ny, nx, mat, c);
             }
         }
     }
-    return c;
+    return ;
 }
 
 int main(){
@@ -81,7 +81,7 @@ int main(){
         for (int x=0; x<N; x++){
             if (Mat[y][x] == 1){
                 int cnt = 0;
-                cnt = dfs(y, x, Mat, cnt);
+                dfs(y, x, Mat, cnt);
                 ret.push_back(cnt);
             }
         }
