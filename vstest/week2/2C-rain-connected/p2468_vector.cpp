@@ -38,7 +38,7 @@ void dfs(int _y, int _x, vector<vector<int>>& mat, int N){
 int main(){
     ios::sync_with_stdio(false); // C I/O와 C++ I/O를 분리해서 더 빠르게
     cin.tie(NULL);
-    cout.tie(NULL);
+    // cout.tie(NULL);
 
     int N;
     cin >> N;
