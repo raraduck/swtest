@@ -27,12 +27,8 @@ int main() {
         psum[i]=sum;
     }
     sum=0;
-    for (int i=1; i<=N; i++){
-        if (K > i){
-            seq[i]=psum[K]-psum[i];
-        } else {
-            seq[i]=psum[i]-psum[i-K];
-        }
+    for (int i=K; i<=N; i++){
+        seq[i]=psum[i]-psum[i-K];
     }
     // cout << "\n";
     int max=seq[K];
