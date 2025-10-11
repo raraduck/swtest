@@ -73,6 +73,7 @@ int main() {
         if (n0s==0) {
             cout << cnt << "\n";
             cout << prev.second << "\n";
+            break;
         } else {
             prev={cnt, n0s};
         }
