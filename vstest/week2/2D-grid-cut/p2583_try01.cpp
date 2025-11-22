@@ -61,7 +61,9 @@ int main() {
     for (int y=0; y<M; y++){
         for (int x=0; x<N; x++) {
             for (auto r : R) {
-                if (r.ey > y && y >= r.sy && r.ex > x && x >= r.sx) grid[y][x]=0;
+                if (r.ey > y && y >= r.sy && r.ex > x && x >= r.sx) {
+                    grid[y][x]=0;
+                }
             }
         }
     }

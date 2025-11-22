@@ -3,20 +3,27 @@
 
 using namespace std;
 
-#define DEBUG 1
-#define RELEASE 0
+#define DEBUG 0
 
 int N;
 int main() {
-    if (RELEASE) {
+    if (DEBUG) {
+    } else {
         ios::sync_with_stdio(false);
         cin.tie(NULL);
     }
-
-    cin >> N;
+    if (DEBUG) {
+        N = 4;
+    } else {
+        cin >> N;
+    }
     vector<int> ORIG(N);
     vector<int> NEG(N, -1);
-    for (int i=0; i<N; i++) cin >> ORIG[i];
+    if (DEBUG) {
+        ORIG={3, 5, 2, 7};
+    } else {
+        for (int i=0; i<N; i++) cin >> ORIG[i];
+    }
     vector<int> STACK;
     for (int i=0; i<N; i++) {
         int orig = ORIG[i];

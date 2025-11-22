@@ -22,6 +22,8 @@
 *.tlog
 *.pch
 *.bsc
+*.out
+*.dSYM
 
 # Visual Studio cache and settings folders
 .vs/
@@ -71,3 +73,4 @@ $RECYCLE.BIN/
 venv
 .env
 *.json
+!config-m1/*
