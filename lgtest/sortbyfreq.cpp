@@ -38,12 +38,8 @@ int main() {
         Arr={11 ,33 ,11, 77, 54 ,11 ,25 ,25, 33};
     }
     runCounter();
-    // for (auto el:Counter){
-    //     cout << el.first << ": " << el.second << "\n";
-    // }
     for (int i=0; i<N; i++){
         int el = Arr[i];
-        // Priority[el]=min(i, Priority[el]);
         Obj.push_back({el, Counter[el], Priority[el]});
     }
 

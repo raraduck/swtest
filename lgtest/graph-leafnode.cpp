@@ -30,6 +30,7 @@ int main() {
         N = 5;
         Parents = {-1, 0, 0, 1, 1};
         Detach = 2;
+        
     } else {
         cin >> N;
         Parents = vector<int>(N,0);
